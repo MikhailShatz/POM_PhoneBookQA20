@@ -1,2 +1,6 @@
-package tests;public class LoginTests {
+package tests;
+
+import config.AppiumConfig;
+
+public class LoginTests extends AppiumConfig {
 }
