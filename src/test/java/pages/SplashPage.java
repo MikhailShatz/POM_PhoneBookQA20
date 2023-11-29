@@ -15,4 +15,8 @@ public class SplashPage  extends BasePage{
         return isTextEqual(versionText , "Version 1.0.0");
     }
 
+    public AuthenticationPage goToAuthPage(){
+        pause(20000);
+        return new AuthenticationPage(driver);
+    }
 }
