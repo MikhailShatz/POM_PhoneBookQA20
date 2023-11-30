@@ -18,7 +18,7 @@ public class LoginTests extends AppiumConfig {
     @Test
     public void negativeLoginEmptyEmail(){
         Assert.assertTrue(new SplashPage(driver).goToAuthPage().fillPassword("Beer12345!")
-                .clickLoginButtonNegative().validateErrorTitleAlertCorrect());
+                .clickRegButtonNegative().validateErrorTitleAlertCorrect());
     }
 
 }

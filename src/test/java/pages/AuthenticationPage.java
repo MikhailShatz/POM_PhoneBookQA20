@@ -28,6 +28,11 @@ public class AuthenticationPage extends BasePage{
         return new ContactListPage(driver);
     }
 
+    public AuthenticationPage clickRegButtonNegative(){
+        clickBase(btnRegistration);
+        return this;
+    }
+
     public ContactListPage clickLoginButton(){
         clickBase(btnLogin);
         return new ContactListPage(driver);
@@ -54,6 +59,10 @@ public class AuthenticationPage extends BasePage{
 
     public ContactListPage login(UserDTO user){
        return fillEmail(user.getEmail()).fillPassword(user.getPassword()).clickLoginButton();
+    }
+
+    public ContactListPage reg(UserDTO user){
+        return fillEmail(user.getEmail()).fillPassword(user.getPassword()).clickRegBtn();
     }
 
     public boolean validateErrorTitleAlertCorrect(){
