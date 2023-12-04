@@ -17,6 +17,7 @@ public class BasePage {
         el.click();
         el.clear();
         el.sendKeys(text);
+        driver.hideKeyboard();
     }
 
     public void clickBase(MobileElement el){
@@ -43,5 +44,9 @@ public class BasePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void backBtnOnEmulator(){
+        driver.navigate().back();
     }
 }

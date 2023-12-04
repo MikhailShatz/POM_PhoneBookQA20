@@ -68,4 +68,5 @@ public class AuthenticationPage extends BasePage{
     public boolean validateErrorTitleAlertCorrect(){
         return isTextEqual(titleErrorTextAlert, "Error");
     }
+
 }

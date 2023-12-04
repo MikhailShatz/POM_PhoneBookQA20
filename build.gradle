@@ -20,6 +20,7 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
 
     implementation 'io.appium:java-client:7.6.0'
+    implementation('com.github.javafaker:javafaker:1.0.2')
 }
 
 test {
