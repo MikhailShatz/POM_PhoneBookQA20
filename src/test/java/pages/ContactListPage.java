@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
+
 import java.util.List;
 
 public class ContactListPage extends BasePage{
@@ -23,7 +24,7 @@ public class ContactListPage extends BasePage{
     @FindBy(xpath = "//*[@class='android.widget.ImageButton']")
     MobileElement btnAddNewContact;
 
-    By phoneWrapper = By.xpath("//*[@resource-id='com.sheygam.contactapp:id/rowContainer']");
+    By phoneWrapper = By.xpath("//*[@resource-id='com.sheygam.contactapp:id/rowPhone']");
 
     public boolean validateContactListOpened() {
         return isTextEqual(textTitle, "Contact list");
@@ -40,11 +41,15 @@ public class ContactListPage extends BasePage{
 
 
     public boolean validateCurrentContactCreated(int i) {
-        for(MobileElement me : mobEls(phoneWrapper)){
-            if (isTextEqual(me,"1234567" + i))
-                return true;
+        boolean contactFound = false;
+
+        for (MobileElement me : mobEls(phoneWrapper)) {
+            if (isTextEqual(me, "1234567" + i)) {
+                contactFound = true;
+                break;
+            }
         }
-        return false;
+        return contactFound;
     }
 
     public List<MobileElement>mobEls(By locator){

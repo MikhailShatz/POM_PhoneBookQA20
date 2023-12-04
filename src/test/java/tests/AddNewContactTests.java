@@ -42,7 +42,6 @@ public class AddNewContactTests extends AppiumConfig {
         int i;
         i = new Random().nextInt(1000)+1000;
         System.out.println(i);
-        ;
         Assert.assertTrue(new ContactListPage(driver).clickBtnAddNewContact()
                 .addNewContact(ContactDTO.builder()
                         .name("Geralt" + i)
