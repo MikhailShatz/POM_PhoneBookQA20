@@ -8,8 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.support.FindBy;
 
-
 import java.util.List;
+
 
 public class ContactListPage extends BasePage{
     public ContactListPage(AppiumDriver<MobileElement> driver) {
@@ -28,14 +28,19 @@ public class ContactListPage extends BasePage{
     MobileElement btnAddNewContact;
     @FindBy(xpath = "//*[@resource-id='android:id/button1']")
     MobileElement btnYesDeleteContact;
+    @FindBy(xpath = "//*[@resource-id='com.sheygam.contactapp:id/updateBtn']")
+    MobileElement btnUpdateEditContact;
 
     //By phoneWrapper = By.xpath("//*[@resource-id='com.sheygam.contactapp:id/rowPhone']");
     @FindBy(xpath = "//*[@resource-id='com.sheygam.contactapp:id/rowPhone']")
     List<MobileElement> phoneWrapper;
     By allPhones = By.xpath("//*[@resource-id='com.sheygam.contactapp:id/rowPhone']");
+
+
     public By getElementByPhoneNumber(String phone){
         return By.xpath(String.format("//*[@text='%s']", phone));
     }
+
     public boolean validateContactListOpened() {
         return isTextEqual(textTitle, "Contact list");
     }
@@ -108,16 +113,9 @@ public class ContactListPage extends BasePage{
         return this;
     }
 
-
-
     public ContactListPage deleteAllContacts() {
         String phone = "";
- //      List<MobileElement> list = driver.findElements(allPhones);
-//        for (MobileElement me : phoneWrapper) {
-//            phone = getTextBase(me);
-//            moveContactByPhoneNumberToTheRight(phone);
-//            clickYesBtnPopUpForContactDelete();
-//        }
+
         List<MobileElement> list = driver.findElements(allPhones);
         while (!list.isEmpty()){
         try {
@@ -138,4 +136,6 @@ public class ContactListPage extends BasePage{
         List<MobileElement> list = driver.findElements(allPhones);
         return list.isEmpty();
     }
+
+
 }

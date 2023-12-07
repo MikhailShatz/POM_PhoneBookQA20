@@ -72,6 +72,8 @@ public class AddNewContactPage extends BasePage{
                 .clickBtnAddNewContact();
     }
 
+
+
     public AddNewContactPage addNewContactNegative(ContactDTO contact) {
        return  sendTextInputName(contact.getName()).sendTextInputLastname(contact.getLastName())
                 .sendTextInputEmail(contact.getEmail()).sendTextInputPhone(contact.getPhone())
