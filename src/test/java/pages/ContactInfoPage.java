@@ -24,8 +24,12 @@ public class ContactInfoPage extends BasePage{
 
     public boolean validateCreatedContactUpdated(String phone, String email) {
         clickBase(getElementByPhoneNumber(phone));
-        if(getTextBase(infoEmail).equals(email));
-        return true;
+        return getTextBase(infoEmail).equals(email);
+    }
+
+    public boolean validateCreatedContactUpdatedPhone(String name, String lastName, String randomPhone) {
+        clickBase(getElementByName(name, lastName));
+        return getTextBase(infoPhone).equals(randomPhone);
     }
 
     public String getFakerEmail() {
@@ -34,11 +38,5 @@ public class ContactInfoPage extends BasePage{
 
     public String getRandomPhone() {
         return randomPhone;
-    }
-
-    public boolean validateCreatedContactUpdatedPhone(String name, String lastName,String randomPhone) {
-        clickBase(getElementByName(name, lastName));
-        if(getTextBase(infoPhone).equals(randomPhone));
-        return true;
     }
 }
